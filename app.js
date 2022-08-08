@@ -51,15 +51,15 @@ const characterHelp = () => {
   result.innerHTML = "";
 
   // get proficiency bonus by level
-  var prof = "2";
+  var prof = 2;
   if (level > 4 && level < 9) {
-    prof = "3";
+    prof = 3;
   }
   else if (level > 8 && level < 13) {
-    prof = "4"; 
+    prof = 4; 
   }
   else if (level > 12 && level < 17) {
-    prof = "5";
+    prof = 5;
   }
 
   // provide character info
@@ -111,7 +111,7 @@ const spellcasterHelp = (div, modifier, level, type) => {
   var spellSaveTitle = div.appendChild(document.createElement('h4'));
   spellSaveTitle.append("Spell Save");
   var spellSaveTxt = div.appendChild(document.createElement('p'));
-  spellSaveTxt.append(`8 + ${ability} modifier + ` + modifier);
+  spellSaveTxt.append(`${ability} modifier + ` + (modifier + 8));
 
   // Spells Known
   var spellSaveTitle = div.appendChild(document.createElement('h4'));
