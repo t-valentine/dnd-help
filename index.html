@@ -56,7 +56,7 @@
   <div class="character-selection">
     <h2>Who are you and what level is your character?</h2>
     <label>PC: </label>
-    <select name="character" id="character">
+    <select name="character" id="character" onchange="characterHelp()">
       <option value="amy">Amy</option>
       <option value="clyde">Clyde</option>
       <option value="izzy">Ishmael</option>
@@ -64,7 +64,7 @@
       <option value="worm">Wormwood</option>
     </select>
     <label>Lvl: </label>
-    <select name="level" id="level">
+    <select name="level" id="level" onchange="characterHelp()">
       <option value="3">3</option>
       <option value="4">4</option>
       <option value="5">5</option>

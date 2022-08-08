@@ -43,3 +43,80 @@ const rollHelp = () => {
     result.append("Roll a d20");
   }
 }
+
+const characterHelp = () => {
+  var character = document.getElementById('character').value;
+  var level = document.getElementById('level').value;
+  var result = document.getElementById('unique-info');
+  result.innerHTML = "";
+
+  // get proficiency bonus by level
+  var prof = "2";
+  if (level > 4 && level < 9) {
+    prof = "3";
+  }
+  else if (level > 8 && level < 13) {
+    prof = "4"; 
+  }
+  else if (level > 12 && level < 17) {
+    prof = "5";
+  }
+
+  // provide character info
+  switch (character) {
+    case "amy":
+      break;
+    case "clyde":
+      spellcasterHelp(result, prof, level, 'cleric');
+      break;
+    case "izzy":
+      break;
+    case "karrde":
+      spellcasterHelp(result, prof, level, 'reaper');
+      break;
+    case "worm":
+      spellcasterHelp(result, prof, level, 'artificer');
+      break;
+  }
+}
+
+const spellcasterHelp = (div, modifier, level, type) => {
+  // Sets spellcasting ability and spellsave
+  if (type == 'cleric') {
+    var ability = "Wisdom";
+    var spellsave = `${ability} modifier + ${level}`;
+  }
+  else if (type == 'reaper') {
+    var ability = "WHAT";
+    var spellsave = `${ability} modifier + ${level}`;
+  }
+  else if (type == 'artificer') {
+    var ability = "Intelligence";
+    var spellsave = `${ability} modifier + ${Math.floor(level/2)}`;
+  }
+
+  // Spell Ability
+  var abilitytitle = div.appendChild(document.createElement('h4'));
+  abilitytitle.append("Spell Ability");
+  var abilitytxt = div.appendChild(document.createElement('p'));
+  abilitytxt.append(`${ability}`);
+
+  // Spell Modifier
+  var modifiertitle = div.appendChild(document.createElement('h4'));
+  modifiertitle.append("Spell Modifier");
+  var modifiertxt = div.appendChild(document.createElement('p'));
+  modifiertxt.append(`${ability} modifier + ` + modifier);
+
+  // Spell Save
+  var spellSaveTitle = div.appendChild(document.createElement('h4'));
+  spellSaveTitle.append("Spell Save");
+  var spellSaveTxt = div.appendChild(document.createElement('p'));
+  spellSaveTxt.append(`8 + ${ability} modifier + ` + modifier);
+
+  // Spells Known
+  var spellSaveTitle = div.appendChild(document.createElement('h4'));
+  spellSaveTitle.append("Spells Known");
+
+  var spellSaveTxt = div.appendChild(document.createElement('p'));
+  spellSaveTxt.append(spellsave);
+} 
