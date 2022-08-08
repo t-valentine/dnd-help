@@ -3,14 +3,18 @@ const skillsHelp = () => {
   var result = document.getElementById('skill-p');
   result.innerHTML = "";
   switch (selection) {
-    case "acrobatics" || "sleight" || "stealth":
+    case "acrobatics":
+    case "sleight":
+    case "stealth":
       result.append("Use Dexterity");
       break;
-    case "arcana" || "history" || "invest" || "nature" || "religion":
-      result.append("Use Intelligence");
+    case "arcana":
+    case "history":
+    case "invest":
+    case "nature":
+    case "religion":
       break;
     case "animal" || "insight" || "medicine" || "perception" || "survival":
-      result.append("Use Wisdom");
       break;
     case "decept" || "intim" || "perform" || "persuade":
       result.append("Use Charisma");
