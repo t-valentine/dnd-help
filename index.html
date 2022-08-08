@@ -10,8 +10,9 @@
 </head>
 
 <body>
-  <!-- add some kind of header -->
-  <h1>Testing...</h1>
+  <div class="header">
+    <h1>Testing...</h1>
+  </div>
   <div id="top">
     <div class="top-sections">
       <h2>Skills</h2>
@@ -55,28 +56,30 @@
   </div>
   <div class="character-selection">
     <h2>Who are you and what level is your character?</h2>
-    <label>PC: </label>
-    <select name="character" id="character" onchange="characterHelp()">
-      <option selected disabled>Choose here</option>
-      <option value="amy">Amy</option>
-      <option value="clyde">Clyde</option>
-      <option value="izzy">Ishmael</option>
-      <option value="karrde">Karrde</option>
-      <option value="worm">Wormwood</option>
-    </select>
-    <label>Lvl: </label>
-    <select name="level" id="level" onchange="characterHelp()">
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-    </select>
+    <div class="character-info">
+      <div>
+        <label>PC: </label>
+        <select name="character" id="character" onchange="characterHelp()">
+          <option selected disabled>Choose here</option>
+          <option value="amy">Amy</option>
+          <option value="clyde">Clyde</option>
+          <option value="izzy">Ishmael</option>
+          <option value="karrde">Karrde</option>
+          <option value="worm">Wormwood</option>
+        </select>
+      </div>
+      <div>
+        <label>Lvl: </label>
+        <select name="level" id="level" onchange="characterHelp()">
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+    </div>
   </div>
   <div id="unique-info">
-    <!-- This is where text will generate based on chosen options -->
-    <!-- Right now there's just filler text -->
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, deserunt aliquam. Amet beatae quaerat officia
-      totam, voluptas error optio ipsum? Iste aliquid corrupti excepturi facere nihil provident, natus veritatis
-      molestiae!</p>
+    <p>Select your character to view FAQ's.</p>
   </div>
   <script src="app.js"></script>
 </body>
