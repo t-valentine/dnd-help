@@ -14,15 +14,32 @@
     <div class="top-sections">
       <h1>Skills</h1>
       <label>For </label>
-      <select name="skills" id="skills">
+      <select name="skills" id="skills" onchange="skillsHelp()">
+        <option value="acrobatics">Acrobatics</option>
+        <option value="animal">Animal Handling</option>
+        <option value="arcana">Arcana</option>
         <option value="athletics">Athletics</option>
+        <option value="decept">Deception</option>
+        <option value="history">History</option>
+        <option value="insight">Insight</option>
+        <option value="intim">Intimidation</option>
+        <option value="invest">Investigation</option>
+        <option value="medicine">Medicine</option>
+        <option value="nature">Nature</option>
+        <option value="perception">Perception</option>
+        <option value="perform">Performance</option>
+        <option value="persuade">Persuasion</option>
+        <option value="religion">Religion</option>
+        <option value="sleight">Sleight of Hand</option>
+        <option value="stealth">Stealth</option>
+        <option value="survival">Survival</option>
       </select>
       <!-- This is where text will generate based on chosen option -->
       <p id="skill-p">Use ...</p>
     </div>
     <div class="top-sections">
       <h1>What Do I Roll For...</h1>
-      <select name="rolls" id="rolls" onchange="roll()">
+      <select name="rolls" id="rolls" onchange="rollHelp()">
         <option value="initiative">Initiative</option>
         <option value="hit">Hitting an enemy</option>
         <option value="damage">Damaging an enemy</option>
