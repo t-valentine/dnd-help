@@ -80,17 +80,17 @@ const characterHelp = () => {
   }
 }
 
-const spellcasterHelp = (div, modifier, level, type) => {
+const spellcasterHelp = (div, modifier, level, _class) => {
   // Sets spellcasting ability and spellsave
-  if (type == 'cleric') {
+  if (_class == 'cleric') {
     var ability = "Wisdom";
     var spellsave = `${ability} modifier + ${level}`;
   }
-  else if (type == 'reaper') {
+  else if (_class == 'reaper') {
     var ability = "WHAT";
     var spellsave = `${ability} modifier + ${level}`;
   }
-  else if (type == 'artificer') {
+  else if (_class == 'artificer') {
     var ability = "Intelligence";
     var spellsave = `${ability} modifier + ${Math.floor(level/2)}`;
   }
