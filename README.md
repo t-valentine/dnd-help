@@ -4,7 +4,7 @@ to very specific recurring questions we encounter while
 playing.
 
 This uses simple HTML, CSS, and JavaScript so that the 
-website can be deployed on Neocities. You can see the live version of the application [here](link.com).
+website can be deployed on Neocities. You can see the live version of the application [here](link.com). The website is built with mobile functionality in mind, but can be used on a tablet or desktop without issue.
 
 ## Using This Website
 This is a simple website, so simply opening the `index.html` will allow you to begin using the website locally. You can use a wide variety of services to deploy the webiste (like Neocities, or if you want to get fanicer something like Vercel).

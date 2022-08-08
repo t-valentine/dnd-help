@@ -65,22 +65,92 @@ const characterHelp = () => {
   // provide character info
   switch (character) {
     case "amy":
+      monkHelper(result, level, prof);
       break;
     case "clyde":
-      spellcasterHelp(result, prof, level, 'cleric');
+      spellcasterHelper(result, prof, level, 'cleric');
       break;
     case "izzy":
+      barbarianHelper(result, level);
       break;
     case "karrde":
-      spellcasterHelp(result, prof, level, 'reaper');
+      spellcasterHelper(result, prof, level, 'reaper');
       break;
     case "worm":
-      spellcasterHelp(result, prof, level, 'artificer');
+      spellcasterHelper(result, prof, level, 'artificer');
       break;
   }
 }
 
-const spellcasterHelp = (div, modifier, level, _class) => {
+const monkHelper = (div, level, prof) => {
+  // martial arts dice
+  var dice = "1d4";
+  if (level > 4 && level < 11) {
+    dice = "1d6"; 
+  } else if (level > 10 && level < 16) {
+    dice = "1d8"; 
+  }
+  else if (level >= 16) {
+    dice = "1d10"; 
+  }
+  
+  var martialTitle = div.appendChild(document.createElement('h4'));
+  martialTitle.append("Martial Arts Die:");
+  var martialTxt = div.appendChild(document.createElement('p'));
+  martialTxt.append(dice);
+  
+  // Ki Points
+  var kiPointsTitle = div.appendChild(document.createElement('h4'));
+  kiPointsTitle.append("Total Ki Points:");
+  var kiPointsTxt = div.appendChild(document.createElement('p'));
+  kiPointsTxt.append(`${level}`);
+  
+  // Ki Save DC
+  var kiSaveTitle = div.appendChild(document.createElement('h4'));
+  kiSaveTitle.append("Ki Save DC:");
+  var kiSaveTxt = div.appendChild(document.createElement('p'));
+  kiSaveTxt.append(`${8 + prof} + Wisdom modifier`);
+        
+}
+
+const barbarianHelper = (div, level) => {
+  // # of rages
+  var rages = 2;
+  if (level > 2 && level < 6) {
+    rages = 3; 
+  }
+  else if (level > 5 && level < 12) {
+    rages = 4; 
+  }
+  else if (level > 11 && level < 17) {
+    rages = 5;
+  }
+  else if (level > 16 && level < 20) {
+    rages = 6;
+  }
+  else {
+    rages = "unlimited";
+  }
+  var rageAmtTitle = div.appendChild(document.createElement('h4'));
+  rageAmtTitle.append("Number of Rages:");
+  var rageAmtTxt = div.appendChild(document.createElement('p'));
+  rageAmtTxt.append(`${rages}`);
+
+  // rage damage
+  var damage = "+2";
+  if (level > 8 && level < 16) {
+    damage = "+3";
+  }
+  else if (level >= 16) {
+    damage = "+4";
+  }
+  var rageDmgTitle = div.appendChild(document.createElement('h4'));
+  rageDmgTitle.append("Rage Damage:");
+  var rageDmgTxt = div.appendChild(document.createElement('p'));
+  rageDmgTxt.append(`${damage}`);
+}
+
+const spellcasterHelper = (div, modifier, level, _class) => {
   // Sets spellcasting ability and spellsave
   if (_class == 'cleric') {
     var ability = "Wisdom";
