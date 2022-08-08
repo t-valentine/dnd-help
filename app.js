@@ -13,10 +13,19 @@ const skillsHelp = () => {
     case "invest":
     case "nature":
     case "religion":
+      result.append("Use Intelligence");
       break;
-    case "animal" || "insight" || "medicine" || "perception" || "survival":
+    case "animal":
+    case "insight":
+    case "medicine":
+    case "perception":
+    case "survival":
+      result.append("Use Wisdom");
       break;
-    case "decept" || "intim" || "perform" || "persuade":
+    case "decept":
+    case "intim":
+    case "perform":
+    case "persuade":
       result.append("Use Charisma");
       break;
     case "athletics":
