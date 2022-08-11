@@ -86,7 +86,7 @@ const characterHelp = () => {
       spellcasterHelper(result, prof, level, 5, 'reaper');
       break;
     case "worm":
-      spellcasterHelper(result, prof, level, 5, 'artificer');
+      spellcasterHelper(result, prof, level, 3, 'artificer');
       break;
   }
 }
