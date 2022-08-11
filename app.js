@@ -45,7 +45,7 @@ const rollHelp = () => {
     result.append("Check your weapon/spell's damage die.");
   }
   else if (selection == 'cast') {
-    result.append("If the spell mentions a save, the target rolls against your spell save.");
+    result.append("If the spell mentions a save, the target rolls against your spell save. ");
     result.append("If no save is mentioned, roll a d20.");
   }
   else {
@@ -74,24 +74,24 @@ const characterHelp = () => {
   // provide character info
   switch (character) {
     case "amy":
-      monkHelper(result, level, prof);
+      monkHelper(result, level, prof, 3);
       break;
     case "clyde":
-      spellcasterHelper(result, prof, level, 'cleric');
+      spellcasterHelper(result, prof, level, 0, 'cleric');
       break;
     case "izzy":
       barbarianHelper(result, level);
       break;
     case "karrde":
-      spellcasterHelper(result, prof, level, 'reaper');
+      spellcasterHelper(result, prof, level, 5, 'reaper');
       break;
     case "worm":
-      spellcasterHelper(result, prof, level, 'artificer');
+      spellcasterHelper(result, prof, level, 5, 'artificer');
       break;
   }
 }
 
-const monkHelper = (div, level, prof) => {
+const monkHelper = (div, level, proficiency, modifier) => {
   // martial arts dice
   var dice = "1d4";
   if (level > 4 && level < 11) {
@@ -118,7 +118,7 @@ const monkHelper = (div, level, prof) => {
   var kiSaveTitle = div.appendChild(document.createElement('h4'));
   kiSaveTitle.append("Ki Save DC:");
   var kiSaveTxt = div.appendChild(document.createElement('p'));
-  kiSaveTxt.append(`${8 + prof} + Wisdom modifier`);
+  kiSaveTxt.append(`${8 + proficiency} + Wisdom modifier  (+${modifier}) = ${8 + proficiency + modifier}`);
         
 }
 
@@ -159,43 +159,51 @@ const barbarianHelper = (div, level) => {
   rageDmgTxt.append(`${damage}`);
 }
 
-const spellcasterHelper = (div, modifier, level, _class) => {
+const spellcasterHelper = (div, proficiency, level, modifier, _class) => {
   // Sets spellcasting ability and spellsave
   if (_class == 'cleric') {
-    var ability = "Wisdom";
-    var spellsave = `${ability} modifier + ${level}`;
+    var ability = `Wisdom (+${modifier})`;
+    var spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
   }
   else if (_class == 'reaper') {
-    var ability = "WHAT";
-    var spellsave = `${ability} modifier + ${level}`;
+    var ability = `WHAT (+${modifier})`;
+    var spellsave = `${ability} + ${level}`;
   }
   else if (_class == 'artificer') {
-    var ability = "Intelligence";
-    var spellsave = `${ability} modifier + ${Math.floor(level/2)}`;
+    var ability = `Intelligence (+${modifier})`;
+    var spellsave = `${ability} + ${Math.floor(level/2)}`;
   }
 
   // Spell Ability
-  var abilitytitle = div.appendChild(document.createElement('h4'));
-  abilitytitle.append("Spell Ability");
-  var abilitytxt = div.appendChild(document.createElement('p'));
+  var div1 = div.appendChild(document.createElement('div'));
+  var abilitytitle = div1.appendChild(document.createElement('p'));
+  abilitytitle.classList.add("bolder");
+  abilitytitle.append("Spell Ability: ");
+  var abilitytxt = div1.appendChild(document.createElement('p'));
   abilitytxt.append(`${ability}`);
 
   // Spell Modifier
-  var modifiertitle = div.appendChild(document.createElement('h4'));
-  modifiertitle.append("Spell Modifier");
-  var modifiertxt = div.appendChild(document.createElement('p'));
-  modifiertxt.append(`${ability} modifier + ` + modifier);
+  var div2 = div.appendChild(document.createElement('div'));
+  var modifiertitle = div2.appendChild(document.createElement('p'));
+  modifiertitle.classList.add("bolder");
+  modifiertitle.append("Spell Modifier:");
+  var modifiertxt = div2.appendChild(document.createElement('p'));
+  modifiertxt.append(`${ability} + ${proficiency} = ${proficiency + modifier}`);
 
   // Spell Save
-  var spellSaveTitle = div.appendChild(document.createElement('h4'));
-  spellSaveTitle.append("Spell Save");
-  var spellSaveTxt = div.appendChild(document.createElement('p'));
-  spellSaveTxt.append(`${ability} modifier + ` + (modifier + 8));
+  var div3 = div.appendChild(document.createElement('div'));
+  var spellSaveTitle = div3.appendChild(document.createElement('p'));
+  spellSaveTitle.classList.add("bolder");
+  spellSaveTitle.append("Spell Save:");
+  var spellSaveTxt = div3.appendChild(document.createElement('p'));
+  spellSaveTxt.append(`${ability} + ${proficiency + 8} = ${modifier + proficiency + 8}`);
 
   // Spells Known
-  var spellSaveTitle = div.appendChild(document.createElement('h4'));
-  spellSaveTitle.append("Spells Known");
+  var div4 = div.appendChild(document.createElement('div'));
+  var spellKnownTitle = div4.appendChild(document.createElement('p'));
+  spellKnownTitle.classList.add("bolder");
+  spellKnownTitle.append("Spells Known:");
 
-  var spellSaveTxt = div.appendChild(document.createElement('p'));
-  spellSaveTxt.append(spellsave);
+  var spellKnownTxt = div4.appendChild(document.createElement('p'));
+  spellKnownTxt.append(spellsave);
 } 

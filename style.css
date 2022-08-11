@@ -1,23 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Open+Sans:wght@400;500&display=swap');
+
 body {
   color: #2b2b2b;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 10px;
+  font-family: 'Open Sans', sans-serif;
+  margin: 5px;
 }
 
 h1 {
+  font-family: 'Macondo', cursive;
   font-size: 24px;
   margin: 0px;
 }
 
 h2 {
+  font-family: 'Macondo', cursive;
   font-size: 18px;
 }
 
+h4 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
 div {
-  border: 2px solid transparent;
+  border: 0px solid transparent;
 }
 
 select {
+  background-color: #e2e2e2;
   border: 2px solid #e2e2e2;
   border-radius: 8px;
   color: #2b2b2b;
@@ -41,46 +51,55 @@ select {
   align-items: stretch;
   display: flex;
   flex: 1 1 0;
+  flex-direction: column;
   justify-content: space-around;
-  margin: 60px 10px 10px 10px;
-}
-
-#top select {
-  border: white;
-  background-color: white;
+  margin: 40px 5px 5px 5px;
 }
 
 .top-sections {
   align-items: center;
-  background-color: #cacaca;
-  border: 2px solid white;
+  border-bottom: 2px solid #cacaca;
   justify-content: center;
   display: flex;
   flex-direction: column;
   flex: 1;
-  padding: 10px;
+  padding: 5px;
+}
+
+.top-sections div {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
 }
 
 .character-selection {
   align-items: center;
   display: flex;
   flex-direction: column;
-  margin: 10px;
-  padding: 10px;
-}
-
-.character-selection select {
-  background-color: #e2e2e2;
+  margin: 5px;
+  padding: 5px;
 }
 
 .character-info {
   align-items: center;
   display: flex;
   flex: 1 1 0;
+  gap: 20px;
   justify-content: space-between;
 }
 
 #unique-info {
-  margin: 10px;
-  padding: 10px;
+  margin: 5px;
+  padding: 5px;
+}
+
+#unique-info div {
+  align-items: center;
+  display: flex;
+  gap: 5px;
+}
+
+.bolder {
+  font-weight: 800;
 }
