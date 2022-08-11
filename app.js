@@ -3,8 +3,8 @@
  * @returns which skill the ability uses
  */
 const skillsHelp = () => {
-  var selection = document.getElementById('skills').value;
-  var result = document.getElementById('skill-p');
+  let selection = document.getElementById('skills').value;
+  let result = document.getElementById('skill-p');
   result.innerHTML = "";
   switch (selection) {
     case "acrobatics":
@@ -45,8 +45,8 @@ const skillsHelp = () => {
  * @returns what dice the user should roll
  */
 const rollHelp = () => {
-  var selection = document.getElementById('rolls').value;
-  var result = document.getElementById('roll-p');
+  let selection = document.getElementById('rolls').value;
+  let result = document.getElementById('roll-p');
   result.innerHTML = "";
   if (selection == 'damage') {
     result.append("Check your weapon/spell's damage die.");
@@ -65,13 +65,13 @@ const rollHelp = () => {
  * Also calculates the character's proficiency bonus
  */
 const characterHelp = () => {
-  var character = document.getElementById('character').value;
-  var level = document.getElementById('level').value;
-  var result = document.getElementById('unique-info');
+  let character = document.getElementById('character').value;
+  let level = document.getElementById('level').value;
+  let result = document.getElementById('unique-info');
   result.innerHTML = "";
 
   // get proficiency bonus by level
-  var prof = 2;
+  let prof = 2;
   if (level > 4 && level < 9) {
     prof = 3;
   }
@@ -112,7 +112,7 @@ const characterHelp = () => {
  */
 const monkHelper = (div, level, modifier, proficiency) => {
   // Calculates Martial Arts Di
-  var dice = "1d4";
+  let dice = "1d4";
   if (level > 4 && level < 11) {
     dice = "1d6"; 
   } else if (level > 10 && level < 16) {
@@ -122,27 +122,27 @@ const monkHelper = (div, level, modifier, proficiency) => {
     dice = "1d10"; 
   }
   
-  var div1 = div.appendChild(document.createElement('div'));
-  var martialTitle = div1.appendChild(document.createElement('p'));
+  let div1 = div.appendChild(document.createElement('div'));
+  let martialTitle = div1.appendChild(document.createElement('p'));
   martialTitle.classList.add("bolder");
   martialTitle.append("Martial Arts Die:");
-  var martialTxt = div1.appendChild(document.createElement('p'));
+  let martialTxt = div1.appendChild(document.createElement('p'));
   martialTxt.append(dice);
   
   // Calculates Ki Points
-  var div2 = div.appendChild(document.createElement('div'));
-  var kiPointsTitle = div2.appendChild(document.createElement('p'));
+  let div2 = div.appendChild(document.createElement('div'));
+  let kiPointsTitle = div2.appendChild(document.createElement('p'));
   kiPointsTitle.classList.add("bolder");
   kiPointsTitle.append("Total Ki Points:");
-  var kiPointsTxt = div2.appendChild(document.createElement('p'));
+  let kiPointsTxt = div2.appendChild(document.createElement('p'));
   kiPointsTxt.append(`${level}`);
   
   // Calculates Ki Save DC
-  var div3 = div.appendChild(document.createElement('div'));
-  var kiSaveTitle = div3.appendChild(document.createElement('p'));
+  let div3 = div.appendChild(document.createElement('div'));
+  let kiSaveTitle = div3.appendChild(document.createElement('p'));
   kiSaveTitle.classList.add("bolder");
   kiSaveTitle.append("Ki Save DC:");
-  var kiSaveTxt = div3.appendChild(document.createElement('p'));
+  let kiSaveTxt = div3.appendChild(document.createElement('p'));
   kiSaveTxt.append(`${8 + proficiency} + Wisdom modifier  (+${modifier}) = ${8 + proficiency + modifier}`);
         
 }
@@ -151,11 +151,11 @@ const monkHelper = (div, level, modifier, proficiency) => {
  * Calculates and displays spell information for the Barbarian class
  * @param {*} div where the information will return on the webpage
  * @param {*} level character's current level
- * @returns # of Rages and Rage damage bonus
+ * @returns # of Rages, Rage damage bonus, and Wild Magic Surge Effect
  */
 const barbarianHelper = (div, level) => {
   // Calculates # of Rages
-  var rages = 2;
+  let rages = 2;
   if (level > 2 && level < 6) {
     rages = 3; 
   }
@@ -172,27 +172,65 @@ const barbarianHelper = (div, level) => {
     rages = "unlimited";
   }
 
-  var div1 = div.appendChild(document.createElement('div'));
-  var rageAmtTitle = div1.appendChild(document.createElement('p'));
+  let div1 = div.appendChild(document.createElement('div'));
+  let rageAmtTitle = div1.appendChild(document.createElement('p'));
   rageAmtTitle.classList.add("bolder");
   rageAmtTitle.append("Number of Rages:");
-  var rageAmtTxt = div1.appendChild(document.createElement('p'));
+  let rageAmtTxt = div1.appendChild(document.createElement('p'));
   rageAmtTxt.append(`${rages}`);
 
   // Calculates Rage Damage
-  var damage = "+2";
+  let damage = "+2";
   if (level > 8 && level < 16) {
     damage = "+3";
   }
   else if (level >= 16) {
     damage = "+4";
   }
-  var div2 = div.appendChild(document.createElement('div'));
-  var rageDmgTitle = div2.appendChild(document.createElement('p'));
+  let div2 = div.appendChild(document.createElement('div'));
+  let rageDmgTitle = div2.appendChild(document.createElement('p'));
   rageDmgTitle.classList.add("bolder");
   rageDmgTitle.append("Rage Damage:");
-  var rageDmgTxt = div2.appendChild(document.createElement('p'));
+  let rageDmgTxt = div2.appendChild(document.createElement('p'));
   rageDmgTxt.append(`${damage}`);
+
+  // The following is only applicable for Path of Wild Magic Barbarians
+  // Calculates Wild Magic Surge Effect
+  let diroll = Math.floor(Math.random() * 7);
+  let surgeEffect;
+  switch (diroll) {
+    case 0:
+      surgeEffect = "	Each creature of your choice that you can see within 30 feet of you must succeed on a Constitution saving throw or take 1d12 necrotic damage. You also gain temporary hit points equal to 1d12 plus your barbarian level.";
+      break;
+    case 1:
+      surgeEffect = "You teleport up to 30 feet to an unoccupied space you can see. Until your rage ends, you can use this effect again on each of your turns as a bonus action.";
+      break;
+    case 2:
+      surgeEffect = "	An intangible spirit, which looks like a flumph or a pixie (your choice), appears within 5 feet of one creature of your choice that you can see within 30 feet of you. At the end of the current turn, the spirit explodes, and each creature within 5 feet of it must succeed on a Dexterity saving throw or take 1d6 force damage. Until your rage ends, you can use this effect again, summoning another spirit, on each of your turns as a bonus action.";
+      break;
+    case 3:
+      surgeEffect = "Magic infuses one weapon of your choice that you are holding. Until your rage ends, the weapon's damage type changes to force, and it gains the light and thrown properties, with a normal range of 20 feet and a long range of 60 feet. If the weapon leaves your hand, the weapon reappears in your hand at the end of the current turn.";
+      break;
+    case 4:
+      surgeEffect = "Whenever a creature hits you with an attack roll before your rage ends, that creature takes 1d6 force damage, as magic lashes out in retribution.";
+      break;
+    case 5:
+      surgeEffect = "Until your rage ends, you are surrounded by multicolored, protective lights; you gain a +1 bonus to AC, and while within 10 feet of you, your allies gain the same bonus.";
+      break;
+    case 6:
+      surgeEffect = "Flowers and vines temporarily grow around you; until your rage ends, the ground within 15 feet of you is difficult terrain for your enemies.";
+      break;
+    case 7:
+      surgeEffect = " bolt of light shoots from your chest. Another creature of your choice that you can see within 30 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage and be blinded until the start of your next turn. Until your rage ends, you can use this effect again on each of your turns as a bonus action.";
+      break;
+  }
+  
+  //let div3 = div.appendChild(document.createElement('div'));
+  let wildMagicTitle = div.appendChild(document.createElement('p'));
+  wildMagicTitle.classList.add("bolder");
+  wildMagicTitle.append("Wild Surge Effect:");
+  let wildMagicTxt = div.appendChild(document.createElement('p'));
+  wildMagicTxt.append(`${surgeEffect}`);
 }
 
 /**
@@ -207,48 +245,48 @@ const barbarianHelper = (div, level) => {
 const spellcasterHelper = (div, proficiency, level, modifier, _class) => {
   // Sets spellcasting ability and spellsave
   if (_class == 'cleric') {
-    var ability = `Wisdom (+${modifier})`;
-    var spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
+    let ability = `Wisdom (+${modifier})`;
+    let spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
   }
   else if (_class == 'reaper') {
-    var ability = `WHAT (+${modifier})`;
-    var spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
+    let ability = `WHAT (+${modifier})`;
+    let spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
   }
   else if (_class == 'artificer') {
-    var ability = `Intelligence (+${modifier})`;
-    var spellsave = `${ability} + ${Math.floor(level/2)} = ${modifier + Math.floor(level/2)}`;
+    let ability = `Intelligence (+${modifier})`;
+    let spellsave = `${ability} + ${Math.floor(level/2)} = ${modifier + Math.floor(level/2)}`;
   }
 
   // Spell Ability
-  var div1 = div.appendChild(document.createElement('div'));
-  var abilitytitle = div1.appendChild(document.createElement('p'));
+  let div1 = div.appendChild(document.createElement('div'));
+  let abilitytitle = div1.appendChild(document.createElement('p'));
   abilitytitle.classList.add("bolder");
   abilitytitle.append("Spellcasting Ability: ");
-  var abilitytxt = div1.appendChild(document.createElement('p'));
+  let abilitytxt = div1.appendChild(document.createElement('p'));
   abilitytxt.append(`${ability}`);
 
   // Spell Modifier
-  var div2 = div.appendChild(document.createElement('div'));
-  var modifiertitle = div2.appendChild(document.createElement('p'));
+  let div2 = div.appendChild(document.createElement('div'));
+  let modifiertitle = div2.appendChild(document.createElement('p'));
   modifiertitle.classList.add("bolder");
   modifiertitle.append("Spellcasting Modifier:");
-  var modifiertxt = div2.appendChild(document.createElement('p'));
+  let modifiertxt = div2.appendChild(document.createElement('p'));
   modifiertxt.append(`${ability} + ${proficiency} = +${proficiency + modifier}`);
 
   // Spell Save
-  var div3 = div.appendChild(document.createElement('div'));
-  var spellSaveTitle = div3.appendChild(document.createElement('p'));
+  let div3 = div.appendChild(document.createElement('div'));
+  let spellSaveTitle = div3.appendChild(document.createElement('p'));
   spellSaveTitle.classList.add("bolder");
   spellSaveTitle.append("Spell Save:");
-  var spellSaveTxt = div3.appendChild(document.createElement('p'));
+  let spellSaveTxt = div3.appendChild(document.createElement('p'));
   spellSaveTxt.append(`${ability} + ${proficiency + 8} = ${modifier + proficiency + 8}`);
 
   // Spells Known
-  var div4 = div.appendChild(document.createElement('div'));
-  var spellKnownTitle = div4.appendChild(document.createElement('p'));
+  let div4 = div.appendChild(document.createElement('div'));
+  let spellKnownTitle = div4.appendChild(document.createElement('p'));
   spellKnownTitle.classList.add("bolder");
   spellKnownTitle.append("Spells Known:");
 
-  var spellKnownTxt = div4.appendChild(document.createElement('p'));
+  let spellKnownTxt = div4.appendChild(document.createElement('p'));
   spellKnownTxt.append(spellsave);
 } 

@@ -5,10 +5,10 @@ This uses simple HTML, CSS, and JavaScript so that the
 website can be deployed on Neocities. You can see the live version of the application [here](link.com). The website is built with mobile functionality in mind, but can be used on a tablet or desktop without issue.
 
 ## Using This Website
-This is a simple website, so simply opening the `index.html` will allow you to begin using the website locally. You can use a wide variety of services to deploy the webiste (like Neocities, or if you want to get fanicer something like Vercel).
+This is a simple website, so simply opening the `index.html` will allow you to begin using the website locally. You can use a wide letiety of services to deploy the webiste (like Neocities, or if you want to get fanicer something like Vercel).
 
 ### Classes
-Since this is tailored for my personal game, the logic for displaying player information is built around the character's names- NOT classes. It's also worth noting that I have used `_class` in code instead of `class` - class is a reserved keyword and can't be used as a variable in JavaScript. Unfortunately there wasn't another logical word choice I could think of, so the _ remains.
+Since this is tailored for my personal game, the logic for displaying player information is built around the character's names- NOT classes. It's also worth noting that I have used `_class` in code instead of `class` - class is a reserved keyword and can't be used as a letiable in JavaScript. Unfortunately there wasn't another logical word choice I could think of, so the _ remains.
 
 Karrde is a homebrew class called Reaper, more information about that class can be found [here](link.com).
 
