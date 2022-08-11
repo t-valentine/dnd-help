@@ -1,7 +1,5 @@
 # dnd-app
-This is a simple website designed to help my friends and I play Dungeons and Dragons. As such, it's tailored
-to very specific recurring questions we encounter while
-playing.
+This is a simple website designed to help my friends and I play Dungeons and Dragons. As such, it's tailored to very specific recurring questions we encounter while playing.
 
 This uses simple HTML, CSS, and JavaScript so that the 
 website can be deployed on Neocities. You can see the live version of the application [here](link.com). The website is built with mobile functionality in mind, but can be used on a tablet or desktop without issue.
@@ -12,23 +10,24 @@ This is a simple website, so simply opening the `index.html` will allow you to b
 ### Classes
 Since this is tailored for my personal game, the logic for displaying player information is built around the character's names- NOT classes. It's also worth noting that I have used `_class` in code instead of `class` - class is a reserved keyword and can't be used as a variable in JavaScript. Unfortunately there wasn't another logical word choice I could think of, so the _ remains.
 
-While the spellcaster classes are visible in code (as needed for the spellcasterHelp function), the other character's don't have visible classes in the code. Amy is a Monk and Ishmael (id='izzy') is a Barbarian. Karrde is a homebrew class called Reaper, more information about that class can be found [here](link.com).
+Karrde is a homebrew class called Reaper, more information about that class can be found [here](link.com).
 
 If you want to tailor this app for your own game, or for a more general audience the following will need to be changed:
-- 'character' Select on `line 56` of index.html   
+- 'character' Select on `line 65` of index.html   
     The select list only includes character names, this can be edited to reflect other players in your game or all classes
-- characterHelp() on `line 47` of app.js
+- characterHelp() on `line 67` of app.js
 
-    This is the section that will need the most editing. On `line 66` there's a switch statement for selecting different characters. This can be set up for your own characters or all classes. There is no default on my switch statement, depending on the edits you make you want to ensure you have one.
+    This is the section that will need the most editing. On `line 86` there's a switch statement for selecting different characters. This can be set up for your own characters or all classes. There is no default on my switch statement, depending on the edits you make you want to ensure you have one.
 
-    The helper method spellcasterHelp() on `line 83` won't need to be edited and if you're editing this so all classes can be searched, you can change the type parameter from a string to the character variable. 
+    The helper method spellcasterHelp() on `line 207` only has functionality for artificers, clerics, and reapers. If you want to implement this for more than 3 types of spellcasters, you may want to change the if/else statement for a switch statement.
+
 - 'level' Select on `line 67` of index.html   
     To prevent players in my game from getting confused, only the player's current level and 2 more are shown. The logic in app.js can handle proficiency bonsuses for all 20 levels, just the front-end is limited.
 
 ## License
 MIT License
 
-Copyright (c) 2022 Tobias Wallace
+Copyright (c) 2022 Tobias Valentine
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

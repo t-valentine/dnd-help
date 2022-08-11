@@ -15,10 +15,10 @@
   </div>
   <div id="top">
     <div class="top-sections">
-      <h2>Skills</h2>
+      <h2>What Ability Do I Use For...</h2>
       <div>
-        <label>For </label>
         <select name="skills" id="skills" onchange="skillsHelp()">
+          <option selected disabled>Choose Skill</option>
           <option value="acrobatics">Acrobatics</option>
           <option value="animal">Animal Handling</option>
           <option value="arcana">Arcana</option>
@@ -39,12 +39,13 @@
           <option value="survival">Survival</option>
         </select>
         <!-- This is where text will generate based on chosen option -->
-        <p id="skill-p">Use ...</p>
+        <p id="skill-p"> Use ...</p>
       </div>
     </div>
     <div class="top-sections">
       <h2>What Do I Roll For...</h2>
       <select name="rolls" id="rolls" onchange="rollHelp()">
+        <option selected disabled>Choose Roll Type</option>
         <option value="initiative">Initiative</option>
         <option value="hit">Hitting an enemy</option>
         <option value="damage">Damaging an enemy</option>
@@ -53,11 +54,11 @@
         <option value="skill">Rolling a Skill Save</option>
       </select>
       <!-- This is where text will generate based on chosen option -->
-      <p id="roll-p">Use a ...</p>
+      <p id="roll-p"></p>
     </div>
   </div>
   <div class="character-selection">
-    <h2>Who are you and what level is your character?</h2>
+    <h2>Character Specific Information</h2>
     <div class="character-info">
       <div>
         <select name="character" id="character" onchange="characterHelp()">

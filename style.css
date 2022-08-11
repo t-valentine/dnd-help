@@ -3,23 +3,20 @@
 body {
   color: #2b2b2b;
   font-family: 'Open Sans', sans-serif;
-  margin: 5px;
+  font-size: 16px;
 }
 
 h1 {
   font-family: 'Macondo', cursive;
-  font-size: 24px;
+  font-size: 32px;
   margin: 0px;
 }
 
 h2 {
+  text-align: center;
   font-family: 'Macondo', cursive;
-  font-size: 18px;
-}
-
-h4 {
-  margin-top: 0px;
-  margin-bottom: 0px;
+  font-size: 24px;
+  margin: 10px;
 }
 
 div {
@@ -32,6 +29,7 @@ select {
   border-radius: 8px;
   color: #2b2b2b;
   font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
   height: 2em;
 }
 
@@ -39,7 +37,7 @@ select {
   align-items: center;
   background-color: #fc4a7b;
   display: flex;
-  height: 3em;
+  height: 4em;
   justify-content: center;
   left: 0;
   position: absolute;
@@ -52,8 +50,8 @@ select {
   display: flex;
   flex: 1 1 0;
   flex-direction: column;
-  justify-content: space-around;
-  margin: 40px 5px 5px 5px;
+  justify-content: space-between;
+  margin: 65px 5px 5px 5px;
 }
 
 .top-sections {
@@ -90,6 +88,8 @@ select {
 }
 
 #unique-info {
+  background-color: #e2e2e2;
+  border-radius: 10px;
   margin: 5px;
   padding: 5px;
 }
@@ -101,5 +101,6 @@ select {
 }
 
 .bolder {
+  color: #6565d5;
   font-weight: 800;
 }
