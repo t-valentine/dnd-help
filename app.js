@@ -85,7 +85,7 @@ const characterHelp = () => {
   // provide character info
   switch (character) {
     case "amy":
-      monkHelper(result, prof, level, 3);
+      monkHelper(result, prof, level, 2);
       break;
     case "clyde":
       spellcasterHelper(result, prof, level, 0, 'cleric');
