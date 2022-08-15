@@ -53,7 +53,7 @@ const rollHelp = () => {
   }
   else if (selection == 'cast') {
     result.append("If the spell mentions a save, the target rolls against your spell save. ");
-    result.append("If no save is mentioned, roll a d20.");
+    result.append("If no save is mentioned, roll a d20 and add your spellcasting modifier to the roll.");
   }
   else {
     result.append("Roll a d20");
@@ -243,18 +243,19 @@ const barbarianHelper = (div, level) => {
  * @returns Spellcasting ability, Spellcasting Modifier, Spell Save, and Spells Known
  */
 const spellcasterHelper = (div, proficiency, level, modifier, _class) => {
+  let ability, spellsave;
   // Sets spellcasting ability and spellsave
   if (_class == 'cleric') {
-    let ability = `Wisdom (+${modifier})`;
-    let spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
+    ability = `Wisdom (+${modifier})`;
+    spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
   }
   else if (_class == 'reaper') {
-    let ability = `WHAT (+${modifier})`;
-    let spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
+    ability = `WHAT (+${modifier})`;
+    spellsave = `${ability} + ${level} = ${modifier + parseInt(level)}`;
   }
   else if (_class == 'artificer') {
-    let ability = `Intelligence (+${modifier})`;
-    let spellsave = `${ability} + ${Math.floor(level/2)} = ${modifier + Math.floor(level/2)}`;
+    ability = `Intelligence (+${modifier})`;
+    spellsave = `${ability} + ${Math.floor(level/2)} = ${modifier + Math.floor(level/2)}`;
   }
 
   // Spell Ability
