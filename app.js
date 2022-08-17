@@ -107,7 +107,7 @@ const characterHelp = () => {
       barbarianHelper(result, level);
       break;
     case "karrde":
-      spellcasterHelper(result, prof, level, 3, 'reaper');
+      spellcasterHelper(result, prof, level, 3, 'strider');
       break;
     case "worm":
       spellcasterHelper(result, prof, level, 3, 'artificer');
@@ -264,8 +264,8 @@ const spellcasterHelper = (div, proficiency, level, modifier, _class) => {
     ability = `Wisdom (+${modifier})`;
     spellsave = modifier + parseInt(level);
   }
-  else if (_class == 'reaper') {
-    ability = `WHAT (+${modifier})`;
+  else if (_class == 'strider') {
+    ability = `Charisma (+${modifier})`;
     spellsave = modifier + Math.floor(level/2);
   }
   else if (_class == 'artificer') {
@@ -297,13 +297,15 @@ const spellcasterHelper = (div, proficiency, level, modifier, _class) => {
   spellSaveTitle.append("Spell Save: ");
   spellSaveTxt.append(modifier + proficiency + 8);
 
-  // Spells Known
-  let spellKnownTxt = div.appendChild(document.createElement('p'));
-  spellKnownTxt.classList.add("character-stats");
-  let spellKnownTitle = spellKnownTxt.appendChild(document.createElement('span'))
-  spellKnownTitle.classList.add('bolder');
-  spellKnownTitle.append("Spells Known: ");
-  spellKnownTxt.append(spellsave);
+  if (_class == 'cleric' || _class == 'artificer') {
+    // Spells Known
+    let spellKnownTxt = div.appendChild(document.createElement('p'));
+    spellKnownTxt.classList.add("character-stats");
+    let spellKnownTitle = spellKnownTxt.appendChild(document.createElement('span'))
+    spellKnownTitle.classList.add('bolder');
+    spellKnownTitle.append("Spells Known: ");
+    spellKnownTxt.append(spellsave);
+  }
 } 
 
 /**
