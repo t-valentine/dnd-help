@@ -2,7 +2,7 @@
 This is a simple website designed to help my friends and I play Dungeons and Dragons. As such, it's tailored to very specific recurring questions we encounter while playing.
 
 This uses simple HTML, CSS, and JavaScript so that the 
-website can be deployed on Neocities. You can see the live version of the application [here](link.com). 
+website can be deployed on Neocities. You can see the live version of the application [here](strahdhelp.neocities.org). 
 
 ## Using This Website
 This is a simple website, so just opening `index.html` will allow you to begin using the website locally. You can use a wide variety of services to deploy the website (like Neocities, or if you want to get fanicer something like Vercel).
@@ -11,9 +11,9 @@ The website is built with mobile use in mind, but can also be used on a tablet o
 
 ## Editing the Site for Your Own Use
 If you want to tailor this app for your own game, or for a more general audience the following will need to be changed:
-- 'character' Select on `line 67` of index.html   
+- 'character' Select on `line 77` of index.html   
     The select list only includes character names, this can be edited to reflect other players in your game or all classes
-- 'level' Select on `line 76` of index.html   
+- 'level' Select on `line 84` of index.html   
     To prevent players in my game from getting confused, only the player's current level and 2 more are shown. The logic in app.js can handle proficiency bonsuses for all 20 levels, just the front-end is limited.
 - characterHelp() on `line 79` of app.js
 
