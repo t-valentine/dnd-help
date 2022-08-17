@@ -2,7 +2,7 @@
 This is a simple website designed to help my friends and I play Dungeons and Dragons. As such, it's tailored to very specific recurring questions we encounter while playing.
 
 This uses simple HTML, CSS, and JavaScript so that the 
-website can be deployed on Neocities. You can see the live version of the application [here](www.strahdhelp.neocities.org). 
+website can be deployed on Neocities. You can see the live version of the application [here](https://strahdhelp.neocities.org/). 
 
 ## Using This Website
 This is a simple website, so just opening `index.html` will allow you to begin using the website locally. You can use a wide variety of services to deploy the website (like Neocities, or if you want to get fanicer something like Vercel).
