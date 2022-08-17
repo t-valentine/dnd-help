@@ -238,15 +238,6 @@ const barbarianHelper = (div, level) => {
       surgeEffect = " bolt of light shoots from your chest. Another creature of your choice that you can see within 30 feet of you must succeed on a Constitution saving throw or take 1d6 radiant damage and be blinded until the start of your next turn. Until your rage ends, you can use this effect again on each of your turns as a bonus action.";
       break;
   }
-  
-
-  // let rageDmgTxt = div.appendChild(document.createElement('p'));
-  // rageDmgTxt.classList.add("character-stats");
-  // let rageDmgTitle = rageDmgTxt.appendChild(document.createElement('span'));
-  // rageDmgTitle.classList.add("bolder");
-  // rageDmgTitle.append("Rage Damage: ");
-  // rageDmgTxt.append(damage);
-
 
   let wildMagicTxt = div.appendChild(document.createElement('p'));
   wildMagicTxt.classList.add("character-stats");
