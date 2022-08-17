@@ -11,79 +11,102 @@
 
 <body>
   <div class="header">
-    <h1>D&amp;D Help!</h1>
+    <p class="title">D&amp;D Help!</p>
   </div>
-  <div id="top">
-    <div class="top-sections">
-      <h2>What Ability Do I Use For...</h2>
-      <div>
-        <select name="skills" id="skills" onchange="skillsHelp()">
-          <option selected disabled>Choose Skill</option>
-          <option value="acrobatics">Acrobatics</option>
-          <option value="animal">Animal Handling</option>
-          <option value="arcana">Arcana</option>
-          <option value="athletics">Athletics</option>
-          <option value="decept">Deception</option>
-          <option value="history">History</option>
-          <option value="insight">Insight</option>
-          <option value="intim">Intimidation</option>
-          <option value="invest">Investigation</option>
-          <option value="medicine">Medicine</option>
-          <option value="nature">Nature</option>
-          <option value="perception">Perception</option>
-          <option value="perform">Performance</option>
-          <option value="persuade">Persuasion</option>
-          <option value="religion">Religion</option>
-          <option value="sleight">Sleight of Hand</option>
-          <option value="stealth">Stealth</option>
-          <option value="survival">Survival</option>
-        </select>
-        <!-- This is where text will generate based on chosen option -->
-        <p id="skill-p"> Use ...</p>
-      </div>
-    </div>
-    <div class="top-sections">
-      <h2>What Do I Roll For...</h2>
-      <select name="rolls" id="rolls" onchange="rollHelp()">
-        <option selected disabled>Choose Roll Type</option>
-        <option value="initiative">Initiative</option>
-        <option value="hit">Hitting an enemy</option>
-        <option value="damage">Damaging an enemy</option>
-        <option value="cast">Casting a Spell</option>
-        <option value="ability">Rolling an Ability Check</option>
-        <option value="skill">Rolling a Skill Save</option>
+
+  <div class="top-containers">
+    <div>
+      <p class="subtitle">What Ability Do I Use For...?</p>
+      <select name="skills" id="skills" onchange="skillsHelp()">
+        <option selected disabled>Choose Skill</option>
+        <option value="acrobatics">Acrobatics</option>
+        <option value="animal">Animal Handling</option>
+        <option value="arcana">Arcana</option>
+        <option value="athletics">Athletics</option>
+        <option value="decept">Deception</option>
+        <option value="history">History</option>
+        <option value="insight">Insight</option>
+        <option value="intim">Intimidation</option>
+        <option value="invest">Investigation</option>
+        <option value="medicine">Medicine</option>
+        <option value="nature">Nature</option>
+        <option value="perception">Perception</option>
+        <option value="perform">Performance</option>
+        <option value="persuade">Persuasion</option>
+        <option value="religion">Religion</option>
+        <option value="sleight">Sleight of Hand</option>
+        <option value="stealth">Stealth</option>
+        <option value="survival">Survival</option>
       </select>
+    </div>
+    <div id="ability" class="blank">
+      <!-- This is where text will generate based on chosen option -->
+      <p id="skill-p"></p>
+    </div>
+  </div>
+
+  <div class="top-containers" style="flex-direction: column;">
+    <p class="subtitle">What Dice Do I Roll For...?</p>
+    <select name="rolls" id="rolls" onchange="rollHelp()">
+      <option selected disabled>Choose Roll Type</option>
+      <option value="initiative">Initiative</option>
+      <option value="hit">Hitting an enemy</option>
+      <option value="damage">Damaging an enemy</option>
+      <option value="cast">Casting a Spell</option>
+      <option value="ability">Rolling an Ability Check</option>
+      <option value="skill">Rolling a Skill Save</option>
+    </select>
+    <div id="roll" class="blank">
       <!-- This is where text will generate based on chosen option -->
       <p id="roll-p"></p>
     </div>
   </div>
-  <div class="character-selection">
-    <h2>Character Specific Information</h2>
-    <div class="character-info">
-      <div>
-        <select name="character" id="character" onchange="characterHelp()">
-          <option selected disabled>Choose Your Character</option>
-          <option value="amy">Amy</option>
-          <option value="clyde">Clyde</option>
-          <option value="izzy">Ishmael</option>
-          <option value="karrde">Karrde</option>
-          <option value="worm">Wormwood</option>
-        </select>
-      </div>
-      <div>
-        <label>Lvl: </label>
-        <select name="level" id="level" onchange="characterHelp()">
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-        </select>
+
+  <div id="character-container">
+    <div>
+      <select name="character" id="character" onchange="characterHelp()">
+        <option selected disabled>Select Character</option>
+        <option value="amy">Amy</option>
+        <option value="clyde">Clyde</option>
+        <option value="izzy">Ishmael</option>
+        <option value="karrde">Karrde</option>
+        <option value="worm">Wormwood</option>
+      </select>
+      <label>Lvl: </label>
+      <select name="level" id="level" onchange="characterHelp()">
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+      </select>
+    </div>
+    <p id="spellability">Select a character to view information.</p>
+    <div id="unique-info">
+    </div>
+    <!-- Trigger/Open The Modal -->
+    <button id="spellhelp-text">How is this calculated?</button>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <div id="modal-content">
+        <span id="close-button">&times;</span>
+        <p class="subtitle">How Are These Calculated?</p>
+        <ul>
+          <li><strong>Spellcasting Modifier:</strong> Spellcasting Ability Modifier + Proficiency Bonus</li>
+          <li><strong>Spell Save:</strong> Spellcasting Ability Modifier + Proficiency Bonus + 8</li>
+          <li><strong>Spells Known:</strong></li>
+          <ul>
+            <li><strong>Clyde:</strong> Spellcasting Ability Modifier + Level</li>
+            <li><strong>Karrde:</strong> Spellcasting Ability Modifier + (Level/2)</li>
+            <li><strong>Wormwood:</strong> Spellcasting Ability Modifier + (Level/2)</li>
+            <li>The rulebook specifies to round down when dividing level.</li>
+          </ul>
+          <li><strong>Martial Arts Die</strong> and <strong>Total Ki Points</strong> are determined by the Monk leveling
+            class</li>
+          <li><strong>Ki Save DC:</strong> Wisdom Ability Modifier + Proficiency Bonus + 8</li>
+        </ul>
+        <p>If you see a math error or if I have any incorrect information, please let me know!</p>
       </div>
     </div>
-  </div>
-  <div id="unique-info">
-    <p>Select your character to view FAQ's.</p>
-  </div>
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
