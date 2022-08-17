@@ -61,6 +61,11 @@ div {
   box-shadow: 4px 4px 3px rgb(0, 0, 0, .25);
 }
 
+#big-screen-func {
+  margin: 0px;
+  padding: 0px;
+}
+
 #ability {
   min-height: 75px;
   width: 40%;
@@ -110,9 +115,12 @@ div {
 }
 
 .character-stats {
-  align-items: left;
   font-size: 16px;
   margin: 5px 10px;
+}
+
+#unique-info {
+  width: 100%;
 }
 
 #spellhelp-text {
@@ -154,4 +162,34 @@ div {
   float: right;
   font-size: 28px;
   font-weight: bold;
+}
+
+@media only screen and (min-width: 700px) {
+  body {
+    padding: 20px 50px;
+  }
+
+  #big-screen-func {
+    align-items: fill;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+
+  .top-containers {
+    width: 100%;
+  }
+
+  .answer {
+    font-size: 16px;
+  }
+
+  .character-stats {
+    font-size: 18px;
+    margin: 30px;
+    width: 50%;
+  }
+
+
 }

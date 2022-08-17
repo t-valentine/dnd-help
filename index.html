@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
+
+<!-- This is a simple website designed to help my friends and I play Dungeons and Dragons. 
+As such, it's tailored to very specific recurring questions we encounter while playing.
+This is specified tailored to be viewed on a phone, so it looks goofy on tablets/computers.
+
+You can view the GitHub here, feel free to make your own: https://github.com/t-valentine/dnd-app -->
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,54 +20,55 @@
   <div class="header">
     <p class="title">D&amp;D Help!</p>
   </div>
-
-  <div class="top-containers">
-    <div>
-      <p class="subtitle">What Ability Do I Use For...?</p>
-      <select name="skills" id="skills" onchange="skillsHelp()">
-        <option selected disabled>Choose Skill</option>
-        <option value="acrobatics">Acrobatics</option>
-        <option value="animal">Animal Handling</option>
-        <option value="arcana">Arcana</option>
-        <option value="athletics">Athletics</option>
-        <option value="decept">Deception</option>
-        <option value="history">History</option>
-        <option value="insight">Insight</option>
-        <option value="intim">Intimidation</option>
-        <option value="invest">Investigation</option>
-        <option value="medicine">Medicine</option>
-        <option value="nature">Nature</option>
-        <option value="perception">Perception</option>
-        <option value="perform">Performance</option>
-        <option value="persuade">Persuasion</option>
-        <option value="religion">Religion</option>
-        <option value="sleight">Sleight of Hand</option>
-        <option value="stealth">Stealth</option>
-        <option value="survival">Survival</option>
+  <div id="big-screen-func">
+    <div class="top-containers">
+      <div>
+        <p class="subtitle">What Ability Do I Use For...?</p>
+        <select name="skills" id="skills" onchange="skillsHelp()">
+          <option selected disabled>Choose Skill</option>
+          <option value="acrobatics">Acrobatics</option>
+          <option value="animal">Animal Handling</option>
+          <option value="arcana">Arcana</option>
+          <option value="athletics">Athletics</option>
+          <option value="decept">Deception</option>
+          <option value="history">History</option>
+          <option value="insight">Insight</option>
+          <option value="intim">Intimidation</option>
+          <option value="invest">Investigation</option>
+          <option value="medicine">Medicine</option>
+          <option value="nature">Nature</option>
+          <option value="perception">Perception</option>
+          <option value="perform">Performance</option>
+          <option value="persuade">Persuasion</option>
+          <option value="religion">Religion</option>
+          <option value="sleight">Sleight of Hand</option>
+          <option value="stealth">Stealth</option>
+          <option value="survival">Survival</option>
+        </select>
+      </div>
+      <div id="ability" class="blank">
+        <!-- This is where text will generate based on chosen option -->
+        <p id="skill-p"></p>
+      </div>
+    </div>
+    <div class="top-containers" style="flex-direction: column;">
+      <p class="subtitle">What Dice Do I Roll For...?</p>
+      <select name="rolls" id="rolls" onchange="rollHelp()">
+        <option selected disabled>Choose Roll Type</option>
+        <option value="initiative">Initiative</option>
+        <option value="hit">Hitting an enemy</option>
+        <option value="damage">Damaging an enemy</option>
+        <option value="cast">Casting a Spell</option>
+        <option value="ability">Rolling an Ability Check</option>
+        <option value="skill">Rolling a Skill Save</option>
       </select>
-    </div>
-    <div id="ability" class="blank">
-      <!-- This is where text will generate based on chosen option -->
-      <p id="skill-p"></p>
+      <div id="roll" class="blank">
+        <!-- This is where text will generate based on chosen option -->
+        <p id="roll-p"></p>
+      </div>
     </div>
   </div>
 
-  <div class="top-containers" style="flex-direction: column;">
-    <p class="subtitle">What Dice Do I Roll For...?</p>
-    <select name="rolls" id="rolls" onchange="rollHelp()">
-      <option selected disabled>Choose Roll Type</option>
-      <option value="initiative">Initiative</option>
-      <option value="hit">Hitting an enemy</option>
-      <option value="damage">Damaging an enemy</option>
-      <option value="cast">Casting a Spell</option>
-      <option value="ability">Rolling an Ability Check</option>
-      <option value="skill">Rolling a Skill Save</option>
-    </select>
-    <div id="roll" class="blank">
-      <!-- This is where text will generate based on chosen option -->
-      <p id="roll-p"></p>
-    </div>
-  </div>
 
   <div id="character-container">
     <div>
