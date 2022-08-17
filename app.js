@@ -78,13 +78,10 @@ const rollHelp = () => {
  */
 const characterHelp = () => {
   let character = document.getElementById('character').value;
-  
-  let spellability = document.getElementById('spellability');
   let result = document.getElementById('unique-info');
   let level = document.getElementById('level').value;
   
   result.innerHTML = "";
-  spellability.innerHTML = "";
 
   // get proficiency bonus by level
   let prof = 2;
@@ -104,16 +101,16 @@ const characterHelp = () => {
       monkHelper(result, prof, level, 2);
       break;
     case "clyde":
-      spellcasterHelper(spellability, result, prof, level, 0, 'cleric');
+      spellcasterHelper(result, prof, level, 0, 'cleric');
       break;
     case "izzy":
       barbarianHelper(result, level);
       break;
     case "karrde":
-      spellcasterHelper(spellability, result, prof, level, 3, 'reaper');
+      spellcasterHelper(result, prof, level, 3, 'reaper');
       break;
     case "worm":
-      spellcasterHelper(spellability, result, prof, level, 3, 'artificer');
+      spellcasterHelper(result, prof, level, 3, 'artificer');
       break;
   }
 }
@@ -148,7 +145,6 @@ const monkHelper = (div, level, modifier, proficiency) => {
   // Calculates Ki Points
   let kiPointsTxt = div.appendChild(document.createElement('p'));
   kiPointsTxt.classList.add("character-stats");
-  kiPointsTxt.classList.add("martial");
   let kiPointsTitle = kiPointsTxt.appendChild(document.createElement('span'));
   kiPointsTitle.classList.add("bolder");
   kiPointsTitle.append("Total Ki Points: ");
@@ -207,7 +203,6 @@ const barbarianHelper = (div, level) => {
 
   let rageDmgTxt = div.appendChild(document.createElement('p'));
   rageDmgTxt.classList.add("character-stats");
-  rageDmgTxt.classList.add("martial");
   let rageDmgTitle = rageDmgTxt.appendChild(document.createElement('span'));
   rageDmgTitle.classList.add("bolder");
   rageDmgTitle.append("Rage Damage: ");
@@ -271,7 +266,7 @@ const barbarianHelper = (div, level) => {
  * @param {*} _class character's combat class
  * @returns Spellcasting ability, Spellcasting Modifier, Spell Save, and Spells Known
  */
-const spellcasterHelper = (div, div2, proficiency, level, modifier, _class) => {
+const spellcasterHelper = (div, proficiency, level, modifier, _class) => {
   let ability, spellsave;
   // Sets spellcasting ability and spellsave
   if (_class == 'cleric') {
@@ -288,14 +283,15 @@ const spellcasterHelper = (div, div2, proficiency, level, modifier, _class) => {
   }
 
   // Spell Ability
-  let spellAbilityTitle = div.appendChild(document.createElement('span'))
+  let spellAbilityTxt = div.appendChild(document.createElement('p'));
+  spellAbilityTxt.classList.add("character-stats");
+  let spellAbilityTitle = spellAbilityTxt.appendChild(document.createElement('span'))
   spellAbilityTitle.classList.add('bolder');
   spellAbilityTitle.append("Spellcasting Ability: ");
-  div.append(ability);
-  div.classList.add("spellability");
+  spellAbilityTxt.append(ability);
 
   // Spell Modifier
-  let modifiertxt = div2.appendChild(document.createElement('p'));
+  let modifiertxt = div.appendChild(document.createElement('p'));
   modifiertxt.classList.add("character-stats");
   let modifierTitle = modifiertxt.appendChild(document.createElement('span'))
   modifierTitle.classList.add('bolder');
@@ -303,7 +299,7 @@ const spellcasterHelper = (div, div2, proficiency, level, modifier, _class) => {
   modifiertxt.append(`+${proficiency + modifier}`);
 
   // Spell Save
-  let spellSaveTxt = div2.appendChild(document.createElement('p'));
+  let spellSaveTxt = div.appendChild(document.createElement('p'));
   spellSaveTxt.classList.add("character-stats");
   let spellSaveTitle = spellSaveTxt.appendChild(document.createElement('span'))
   spellSaveTitle.classList.add('bolder');
@@ -311,7 +307,7 @@ const spellcasterHelper = (div, div2, proficiency, level, modifier, _class) => {
   spellSaveTxt.append(modifier + proficiency + 8);
 
   // Spells Known
-  let spellKnownTxt = div2.appendChild(document.createElement('p'));
+  let spellKnownTxt = div.appendChild(document.createElement('p'));
   spellKnownTxt.classList.add("character-stats");
   let spellKnownTitle = spellKnownTxt.appendChild(document.createElement('span'))
   spellKnownTitle.classList.add('bolder');
