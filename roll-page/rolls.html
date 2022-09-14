@@ -12,14 +12,20 @@
     <p class="title">D&amp;D Help!</p>
     <a href="../index.html">home</a>
   </div>
+  <!-- Weapon & Spell will be anchor links to the appropriate sections -->
+  <div class="navLinks">
+    <p>Are you using a Weapon or a Spell?</p>
+  </div>
   <div class="top-containers">
     <p class="subtitle">Roll to Attack</p>
-    <p>Does your attack roll use Strength or Dexterity?</p>
-    <label>Input the appropriate modifier:</label>
-    <input type="number" id="tentacles" name="tentacles"
-       min="-5" max="10" class="select">
-    <p>Do you have proficiency with this weapon?</p>
-    <div id="attack-mod" class="blank">
+    <div style="align-items: center; display: flex; gap: 15px; justify-content: center; margin: 0; padding: 5px;">
+      <p>Determine if your weapon uses Str or Dex, and enter the modifier:</p>
+      <input type="number" id="modifier" min="-5" max="10" class="select">
+    </div>      
+    <div style="align-items: center; display: flex; gap: 15px; justify-content: center; margin: 0; padding: 5px;">
+      <input type="checkbox" id="proficiency" value="1"><p>Do you have proficiency with this weapon?</p></input> 
+    </div>      
+    <div id="attack-mod" class="blank" style="align-items: center; display: flex; gap: 15px; justify-content: center; width: 85%">
       <p id="attack-p"></p>
     </div>
   </div>
