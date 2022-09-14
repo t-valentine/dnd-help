@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Macondo&family=Roboto&display=swap');
+
+body {
+  background-color: #F2EAE1;
+  color: #0F0F0F;
+  font-family: 'Roboto', sans-serif;
+}
+
+div {
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.select {
+  background-color: #F2EAE1;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  color: #0F0F0F;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  padding: 5px;
+  text-align: center;
+}
+
+
+.header {
+  align-items: center;
+  display: flex;
+  height: 1.5em;
+  font-family: 'Macondo', cursive;
+  justify-content: center;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  margin: 5px;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 5px;
+}
+
+
+.top-containers {
+  align-items: center;
+  background-color: #0F0F0F;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 10px;
+
+  -moz-box-shadow: 4px 4px 3px rgb(0, 0, 0, .25);
+  -webkit-box-shadow: 4px 4px 3px rgb(0, 0, 0, .25);
+  box-shadow: 4px 4px 3px rgb(0, 0, 0, .25);
+}
+
+.blank {
+  background-color: #524C49;
+}
+
+.answer {
+  align-items: center;
+  background-color: #EDA07F;
+  color: #0F0F0F;
+  display: flex;
+  font-size: 14px;
+  justify-content: space-evenly;
+  text-align: center;
+
+  -moz-box-shadow: inset -4px -4px 5px rgb(231, 83, 60, .25);
+  -webkit-box-shadow: inset -4px -4px 5px rgb(231, 83, 60, .25);
+  box-shadow: inset -4px -4px 5px rgb(231, 83, 60, .25);
+}
